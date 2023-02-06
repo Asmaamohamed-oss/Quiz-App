@@ -47,8 +47,6 @@ class Quiz{
         this.finalElement.style.display="block";
         const countAnswers = this.correctAnswersAmount()
         new Final(countAnswers,this.totalAmount)
-
-        new Final(countAnswers,this.totalAmount)
     }
     correctAnswersAmount=()=>{
         let count = 0;

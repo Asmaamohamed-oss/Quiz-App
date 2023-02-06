@@ -13,7 +13,6 @@ class Question{
         let inputValue =  checkedElement[0].firstChild.value
         this.isCorrect = inputValue == this.correctAnswer ? true : false;
     }
-
     render(){
         this.questionEle.innerHTML =this.qusetion;
         this.answerEles.forEach((label,index)=>{ 

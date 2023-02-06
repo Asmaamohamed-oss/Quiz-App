@@ -9,7 +9,7 @@ class Final{
     }
     render(correctAnswers,totalAmount){
         this.scoreElement.innerHTML = `
-        You Have Answered ${correctAnswers} Qustions From ${totalAmount} Correct
+        You Have Answered ${correctAnswers} Qustions From ${totalAmount}
         `
     }
     tryAgain=()=>{
