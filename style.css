@@ -67,7 +67,7 @@ label{
     align-items: center;
     min-height: 70px;
     gap: 5px;
-    border-bottom: 2px solid #fcfcfc;
+    border-bottom: 2px solid var(--main--color);
 }
 
 
@@ -130,9 +130,7 @@ button:hover{
     display: grid;
     gap: 7px;
 }
-/* .quiz div.answers-labels label:not(:last-child){
-    margin-right: 5px;
-} */
+
 .quiz div.answers-labels label{
     font-size: 17px;
 }
@@ -150,18 +148,18 @@ button:hover{
 }
 .loading{
     display: none;
-    color: var(--white--color);
-    text-align: center;
-    font-size: 40px;
-    animation: loading 1s linear;
-    animation-iteration-count: infinite;
+    border: 3.5px solid ;
+    border-color: #fcfcfc #fcfcfc #fcfcfc transparent;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transform: rotate(0);
+    animation: loading .9s infinite ;
+    /* animation-iteration-count: infinite ; */
 }
 @keyframes loading{
-    0%{
-        opacity: 1;
-    }
     100%{
-        opacity: 0;
+        transform: rotate(360deg);
     }
 }
 
