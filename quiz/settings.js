@@ -13,6 +13,7 @@ class Settings{
         this.quiz = {}
         /// 
         this.startBtn.addEventListener("click",this.startQiuzApp)
+        this.amountDom.addEventListener("input",this.checkAmount)
     }
     //Methods
     //Unsing arrow function here is important becouse of value of this keyword
@@ -24,7 +25,6 @@ class Settings{
             const difficulty = this.chooseDifficulty();
             if(category !== "" && amount !== undefined && difficulty !== undefined){
                 const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}`;
-                
                 this.settingsDom.style.display = "none" 
                 this.loading.style.display = "block" 
                 // Get data from the object that returned from fetchData function using destructruing
@@ -32,24 +32,29 @@ class Settings{
                 this.loading.style.display = "none" 
                 this.quiz = new Quiz(this.quizDom,amount,results)
                 this.quizDom.style.display = "grid" 
-                //Invoke Quiz Class
             }else{
-                alert("Please Complete Settings")
+                alert("Please Complete Settings Correctly")
             }
         } catch (error) {
             console.log(error,"error");
-            alert("Something wrong happend ,Can You Try Again?")
+            alert("No Results,Can You Try Again?")
             location.reload()
         }
     }
-
     getAmount(){
         const amount = this.amountDom.value 
         if(amount > 0 && amount <= 50){
             return amount
         }
     }
-    
+    checkAmount(e){
+        const amount = e.target.value
+        if(amount >= 0 && amount <= 50){
+            document.querySelector(".msg").style.opacity="0"
+        }else{
+            document.querySelector(".msg").style.opacity="1"
+        }
+    }
     chooseDifficulty(){
         const checkDifficulty = [...this.difficultyDom].filter(function(input){
             return input.checked;

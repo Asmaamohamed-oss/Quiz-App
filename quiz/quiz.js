@@ -29,9 +29,11 @@ class Quiz{
     }
 
     nextQuestion=()=>{
+        //Get Label with Correct Answer => input checked
         let checkedElement = this.questionsNewFormat[this.answerdAmount].answerEles.filter((label)=>{
             return label.firstChild.checked;
         })
+        // console.log(checkedElement,"checked");
         if(checkedElement.length == 0){
             alert("please answer")
         }else{
@@ -46,17 +48,25 @@ class Quiz{
         this.quizElement.style.display="none"
         this.finalElement.style.display="block";
         const countAnswers = this.correctAnswersAmount()
-        new Final(countAnswers,this.totalAmount)
+        new Final(countAnswers.length,this.totalAmount)
     }
-    correctAnswersAmount=()=>{
-        let count = 0;
-        this.questionsNewFormat.forEach(element => {
-            if(element.isCorrect){
-                count++
-            }
-        });
-        return count
+    correctAnswersAmount(){
+        const filterdArr = this.questionsNewFormat.filter(function(ques){
+            return ques.isCorrect;
+        })
+        return filterdArr
     }
+    //Another way
+    // correctAnswersAmount(){
+    //     let count = 0;
+    //     this.questionsNewFormat.forEach(element => {
+    //         if(element.isCorrect){
+    //             count++
+    //             console.log(element);
+    //         }
+    //     });
+    //     return count
+    // }
 }
 
 
