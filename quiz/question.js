@@ -16,7 +16,7 @@ class Question{
     render(){
         this.questionEle.innerHTML =this.qusetion;
         this.answerEles.forEach((label,index)=>{ 
-            label.innerHTML = `<input type="radio"
+            label.innerHTML = `<input type="radio" name="answer"
             ${this.answers[index]==undefined?'hidden':''}> 
             ${this.answers[index] !== undefined ? this.answers[index] :''}`
         })
